@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 	char *filebuf, shortstr[3];
 
 	if ((ff = fopen(FNAME, "r")) == NULL) {
-		perror("fopen err");
+		fprintf(stderr, "File not present. Please create dumpfile and name it 'dump'.\n");
 		return EXIT_FAILURE;
 	}
 	fseek(ff, 0, SEEK_END);
