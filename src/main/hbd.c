@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "hbd.h"
 
-int *hextobinary(char *hex) {
+int translate(char *hex) {
 
-	int *binarr = malloc(sizeof(int) * 8);
-	memset(binarr, 0, 8);
+	int sum, binarr[8] = {0,0,0,0,0,0,0,0};
 
 	switch (hex[0]) {
 	case '0':
@@ -144,30 +142,23 @@ int *hextobinary(char *hex) {
 		fprintf(stderr, "INVALID HEX CHARACTER\n");
 		exit(EXIT_FAILURE);
 	}
-
-	return binarr;
-
-}
-
-int binarytodecimal(int *bin) {
-
-	int sum = 0;
-
-	if (bin[0])
+	sum = 0;
+	if (binarr[0])
 		sum += 128;
-	if (bin[1])
+	if (binarr[1])
 		sum += 64;
-	if (bin[2])
+	if (binarr[2])
 		sum += 32;
-	if (bin[3])
+	if (binarr[3])
 		sum += 16;
-	if (bin[4])
+	if (binarr[4])
 		sum += 8;
-	if (bin[5])
+	if (binarr[5])
 		sum += 4;
-	if (bin[6])
+	if (binarr[6])
 		sum += 2;
-	if (bin[7])
+	if (binarr[7])
 		++sum;
 	return sum;
+
 }

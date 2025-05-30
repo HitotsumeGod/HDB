@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 
-extern int *hextobinary(char *hexbyte);
-extern int binarytodecimal(int *binary);
+extern int translate(char *hexbyte);
 
 #endif //__HBD_H__
