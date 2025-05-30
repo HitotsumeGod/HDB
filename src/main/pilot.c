@@ -38,6 +38,10 @@ int main(int argc, char *argv[]) {
 	}
 	printf("\n");
 	free(filebuf);
+	if ((ff = freopen(FNAME, "w", ff)) == NULL) {
+		perror("freopen err");
+		return EXIT_FAILURE;
+	}
 	fclose(ff);
 	return 0;
 
